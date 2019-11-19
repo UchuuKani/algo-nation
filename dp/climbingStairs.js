@@ -1,4 +1,4 @@
-//iterative bottom-up approach
+//iterative bottom-up approach (tabulation)
 const climbStairs = function(n) {
   //build up array of paths
   const memo = [];
