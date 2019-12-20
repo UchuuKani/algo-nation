@@ -1,18 +1,16 @@
 function containsCycle(firstNode) { //takes head of a linked list as input and returns boolean as output
   let fastRunner = firstNode;
   let slowRunner = firstNode;
-  
-  if (firstNode && firstNode.next) { 
-    while (fastRunner && slowRunner) {
-      fastRunner = fastRunner.next.next;
-      slowRunner = slowRunner.next;
-      
-      if (fastRunner === slowRunner) {
-        return true;
-      }
+   
+  while (fastRunner && fastRunner.next) {
+    fastRunner = fastRunner.next.next;
+    slowRunner = slowRunner.next;
+    
+    if (fastRunner === slowRunner) {
+      return true;
     }
   }
-  
+
   return false;
 }
 
