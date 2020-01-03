@@ -15,9 +15,7 @@ function smallestDifference(arrayOne, arrayTwo) {
     let computedDiff = Math.abs(currentOne - currentTwo);
 
     if (computedDiff === 0) {
-      pair[0] = currentOne;
-      pair[1] = currentTwo;
-      break;
+      return [currentOne, currentTwo];
     } else if (computedDiff < smallestDiff) {
       smallestDiff = computedDiff;
       pair[0] = currentOne;
