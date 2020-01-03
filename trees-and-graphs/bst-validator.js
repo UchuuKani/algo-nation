@@ -49,6 +49,7 @@ function recursiveIsBST(root, lower, upper) {
   }
 
   if (!root) {
+    //if the root is null, means we can't recurse further
     return true;
   }
 
@@ -57,8 +58,10 @@ function recursiveIsBST(root, lower, upper) {
   }
 
   return (
-    recursiveIsBST(root.left, lower, root.value) &&
-    recursiveIsBST(root.right, root.value, upper)
+    recursiveIsBST(root.left, lower, root.value) && //explore left sub-tree, any false values will propagate through and
+    //second expression exploring right will not evaluate
+    recursiveIsBST(root.right, root.value, upper) //explore right sub-tree, any false values will propagate and return
+    //false from this expression
   );
 }
 
