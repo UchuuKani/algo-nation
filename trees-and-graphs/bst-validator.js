@@ -40,12 +40,35 @@ function isBinarySearchTree(treeRoot) {
   return true;
 }
 
+function recursiveIsBST(root, lower, upper) {
+  if (!lower) {
+    lower = -Infinity;
+  }
+  if (!upper) {
+    upper = Infinity;
+  }
+
+  if (!root) {
+    return true;
+  }
+
+  if (root.value >= upper || root.value <= lower) {
+    return false;
+  }
+
+  return (
+    recursiveIsBST(root.left, lower, root.value) &&
+    recursiveIsBST(root.right, root.value, upper)
+  );
+}
+
 // time complexity: O(n) time since all nodes must be visited
 // space complexity: O(d) space where d is the height of the BST. Alternatively, d relates to n (number of nodes)
 // in that a balanced binary tree has the relation d = log2(n) and the less balanced the tree, the closer d is to n.
 // worst case space is a tree with all right children extending from the root where each child has a left child which will
 // be added to the stack on every iteration. By the time traversal to the last right child has ended, there will
 // be 1/2*n nodes in the stack, resolving to O(n) space at worst
+// recursive solution may have stack overflow if input binary tree has a large depth
 
 class BinaryTreeNode {
   constructor(value) {
