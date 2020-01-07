@@ -4,26 +4,22 @@ function moveZeroes(intArr) {
   if (intArr.length <= 1) {
     return intArr;
   }
-  let count = 0;
+
   let firstPointer = 0;
   let secondPointer = 1;
 
   while (secondPointer !== intArr.length) {
-    console.log("the count", count);
     if (intArr[firstPointer] === 0 && intArr[secondPointer] !== 0) {
       intArr[firstPointer] = intArr[secondPointer];
       intArr[secondPointer] = 0;
 
       firstPointer += 1;
       secondPointer += 1;
-      count++;
     } else if (intArr[firstPointer] === 0 && intArr[secondPointer] === 0) {
       secondPointer += 1;
-      count++;
     } else {
       firstPointer += 1;
       secondPointer += 1;
-      count++;
     }
   }
 
