@@ -19,4 +19,4 @@ function uniquePaths(m, n) {
 // time complexity: O(m x n), takes this long to initialize the dp array, and O(m x n) time to fill out the dp
 // array with values (m is num rows, n is num columns)
 // space complexity: O(m x n) space for storing the dp array (m is num rows, n is num columns)
-console.log(uniquePaths(5, 3));
+console.log(uniquePaths(3, 4));
