@@ -32,7 +32,20 @@ var oddEvenList = function(head) {
   return head;
 };
 
-// time complexity: O(n) where n is the length of the list. Have to traverse the majority of the list before breaking out of the
-// while loop
+// - First check to make sure that the list is greater than two elements long
+//   - If it isn't just return the head since list will already be sorted
+// - Otherwise, initialize variables to hold references to even nodes (`temp`), the current node (`current`, only ever the odd nodes in the list) and one to reference the first even node in the list (`firstEven`) so that the last odd can be linked to the first even node
 
-//space complexity: O(1) since no additional data structures are used, only variables referencing a single node at a time
+// - Iterate through the list while the current node is not the last one in the list
+
+//   - break out of the loop if the current odd node that we're on is the last one in the list, otherwise:
+
+//   - assign `temp` to be `current`'s `next` since that is the next even node in the list
+//   - assign `current.next` to be `temp`'s next since that will be the next odd node in the list
+//   - assign `temp.next` to be `current.next.next`, which is the next even node in the list
+
+// - Once finished iterating, assign `current.next` (at this point, it is the last odd node in the list) to be `firstEven`, the first even node in the list
+// - Return head of the list
+
+// - Operates in O(n) time since we need to traverse just before the end of the list to assign everything
+// - Uses O(1) space as no extra data structures are created, variables are only assigned to a single node at a time
