@@ -37,6 +37,10 @@ var reverseWords = function(s) {
   return processedArr.reverse().join(" ");
 };
 
+// time complexity: O(n) where n is length of the input string
+// space complexity: O(n) where n is length of input string. Creates array representations of the string in various stages
+// of processing
+
 let desc = "one word";
 let input = "vault".split("");
 reverseWords(input);
