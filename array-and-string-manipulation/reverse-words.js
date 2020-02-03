@@ -1,5 +1,3 @@
-// You're working on a secret team solving coded transmissions.
-
 // Your team is scrambling to decipher a recent message, worried it's a plot to break into a major European National
 // Cake Vault. The message has been mostly deciphered, but all the words are backward! Your colleagues have handed off
 // the last step to you.
@@ -24,60 +22,61 @@
 
 // When writing your function, assume the message contains only letters and spaces, and all words are separated by one space.
 
+// LeetCode # 151 working solution
+var reverseWords = function(s) {
+  const trimmedStr = s.trim();
+  const splitVersion = trimmedStr.split(" ");
+  const processedArr = [];
 
+  for (const word of splitVersion) {
+    if (word !== "") {
+      processedArr.push(word);
+    }
+  }
 
+  return processedArr.reverse().join(" ");
+};
 
-
-
-
-
-
-
-
-
-
-
-
-let desc = 'one word';
-let input = 'vault'.split('');
+let desc = "one word";
+let input = "vault".split("");
 reverseWords(input);
-let actual = input.join('');
-let expected = 'vault';
+let actual = input.join("");
+let expected = "vault";
 assertEqual(actual, expected, desc);
 
-desc = 'two words';
-input = 'thief cake'.split('');
+desc = "two words";
+input = "thief cake".split("");
 reverseWords(input);
-actual = input.join('');
-expected = 'cake thief';
+actual = input.join("");
+expected = "cake thief";
 assertEqual(actual, expected, desc);
 
-desc = 'three words';
-input = 'one another get'.split('');
+desc = "three words";
+input = "one another get".split("");
 reverseWords(input);
-actual = input.join('');
-expected = 'get another one';
+actual = input.join("");
+expected = "get another one";
 assertEqual(actual, expected, desc);
 
-desc = 'multiple words same length';
-input = 'rat the ate cat the'.split('');
+desc = "multiple words same length";
+input = "rat the ate cat the".split("");
 reverseWords(input);
-actual = input.join('');
-expected = 'the cat ate the rat';
+actual = input.join("");
+expected = "the cat ate the rat";
 assertEqual(actual, expected, desc);
 
-desc = 'multiple words different lengths';
-input = 'yummy is cake bundt chocolate'.split('');
+desc = "multiple words different lengths";
+input = "yummy is cake bundt chocolate".split("");
 reverseWords(input);
-actual = input.join('');
-expected = 'chocolate bundt cake is yummy';
+actual = input.join("");
+expected = "chocolate bundt cake is yummy";
 assertEqual(actual, expected, desc);
 
-desc = 'empty string';
-input = ''.split('');
+desc = "empty string";
+input = "".split("");
 reverseWords(input);
-actual = input.join('');
-expected = '';
+actual = input.join("");
+expected = "";
 assertEqual(actual, expected, desc);
 
 function assertEqual(a, b, desc) {
