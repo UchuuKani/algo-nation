@@ -5,17 +5,18 @@
 
 function reverse(head) {
   let current = head;
-  let prev = null; 
+  let prev = null;
   let next = current.next;
 
-  while (current.next) { 
-      current.next = prev;
-      prev = current; 
-      current = next; 
-      next = next.next;
-
+  while (current.next) {
+    current.next = prev;
+    prev = current;
+    current = next;
+    next = next.next;
   }
 
   current.next = prev;
   return current;
 }
+
+module.exports.reverse = reverse;
