@@ -1,25 +1,36 @@
-function maximumSubarray(anArr) {
-  let maxFound = anArr[0];
-  let currentMax = anArr[0];
+// LC # 53
+function maximumSubarray(numArr) {
+  let maxFound = numArr[0];
+  let currentMax = numArr[0];
 
-  for (let i = 1; i < anArr.length; i++) {
+  for (let i = 1; i < numArr.length; i++) {
+    // starting from the element at the 1st index
     let int = anArr[i];
+    // currentMax is the greater value between the current (int), and (currentMax + int)
     currentMax = Math.max(int, currentMax + int);
+    // maxFound is the greater value between the largest max we've found and the currentMax we calculated
     maxFound = Math.max(maxFound, currentMax);
   }
 
   return maxFound;
 }
 
-const test = [-2, 1, -3, 4, -1, 2, 1, -5, 4];
-const test2 = [17, -5, -3, 28];
-const test3 = [17, -500, -3, 28];
-const test4 = [-5, -10, -80, -23];
-const test5 = [1];
+// time complexity: O(n) where n is the length of the array input as we iterate through it once
+// space complexity: O(1) since no additional data structures are being used to hold values. Only variables are being updated
 
-console.log(maximumSubarray(test5));
+//
+//
+// solution with extra space involved
+function maximumSubarraySpace(numArr) {
+  let dp = [numArr[0]];
+  let max = numArr[0];
 
-// time complexity: O(n) where n is length of input array. Iterate through whole array once. There is variable assignment
-// being done in the loop, and Math.max is only calculating the max from two values independent of input size
+  for (let i = 0; i < numArr.length; i++) {
+    dp[i] = numArr[i] + (dp[i - 1] > 0 ? dp[i - 1] : 0);
+    max = Math.max(max, dp[i]);
+  }
 
-// space complexity: O(1), constant space, only variable re-assignment being performed
+  return max;
+}
+
+// time complexity is same as above, but space complexity is O(n) since space is being used to store intermediate calculations
